@@ -1,0 +1,6 @@
+name: BedwarsClient
+version: ${project.version}
+main: me.deadlight.bedwarsclient.BedwarsClient
+authors: [ Dead_Light ]
+description: BedwarsClient for atom
+depend: [ClashWars]
