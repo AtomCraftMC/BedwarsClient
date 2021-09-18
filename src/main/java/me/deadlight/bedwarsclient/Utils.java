@@ -72,7 +72,6 @@ public class Utils {
 
 
         Collections.sort(servers);
-        Collections.reverse(servers);
 
         if (servers.size() == 0) {
             return "auth";
