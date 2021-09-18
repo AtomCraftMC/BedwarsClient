@@ -105,7 +105,7 @@
             <artifactId>ClashWars</artifactId>
             <version>v1.14c-Legacy</version>
             <scope>system</scope>
-            <systemPath>D:/Desktop/BedWarsLegacy.jar</systemPath>
+            <systemPath>C:/Users/Amirreza/IdeaProjects/BedwarsClient/lib/BedWarsLegacy.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.github.NEZNAMY</groupId>
@@ -117,7 +117,7 @@
             <groupId>sv.file14</groupId>
             <artifactId>procosmetics</artifactId>
             <version>12.6</version>
-            <systemPath>D:/Desktop/ProCosmetics.jar</systemPath>
+            <systemPath>C:/Users/Amirreza/IdeaProjects/BedwarsClient/lib/ProCosmetics.jar</systemPath>
             <scope>system</scope>
         </dependency>
         <dependency>

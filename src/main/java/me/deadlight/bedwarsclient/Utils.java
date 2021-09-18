@@ -7,8 +7,7 @@ import ro.Fr33styler.ClashWars.Games.Game;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 public class Utils {
@@ -46,14 +45,25 @@ public class Utils {
     }
 
     public static String calculateTheRightBedwarsLobby() {
-        String result1 = null;
-        String result2 = null;
+
+
+        List<ServerObject> servers = new ArrayList<>();
         Jedis j = null;
         try {
             j = BedwarsClient.pool.getResource();
             j.auth("piazcraftmc");
-            result1 = j.get("count-blobby1");
-            result2 = j.get("count-blobby2");
+            if (j.get("lobbylist") == null) {
+                return "auth";
+            }
+            List<String> lobbyServers = Arrays.asList(j.get("lobbylist").split(":"));
+            for (String server : lobbyServers) {
+                if (j.get("count-" + server) == null) {
+                    continue;
+                }
+                int count = Integer.parseInt(j.get("count-" + server));
+                ServerObject object = new ServerObject(server, count);
+                servers.add(object);
+            }
         } finally {
             if (j != null)  {
                 j.close();
@@ -61,29 +71,17 @@ public class Utils {
         }
 
 
-        if (result1 != null || result2 != null) {
+        Collections.sort(servers);
+        Collections.reverse(servers);
 
-            if (result1 == null) {
-                return "blobby2";
-            }
-            if (result2 == null) {
-                return "blobby1";
-            }
-            int count1 = Integer.parseInt(result1);
-            int count2 = Integer.parseInt(result2);
-            if (count1 == count2) {
-                return "blobby1";
-            }
-
-            if (count1 > count2) {
-                return "blobby2";
-            } else {
-                return "blobby1";
-            }
-
-        } else {
+        if (servers.size() == 0) {
             return "auth";
         }
+
+        return servers.get(0).name;
+
+
+
 
     }
 

@@ -5,6 +5,7 @@ import me.deadlight.bedwarsclient.Listeners.TntModifier;
 import me.deadlight.bedwarsclient.Listeners.YLevelListener;
 import me.deadlight.bedwarsclient.Oldway.SocketClient;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -23,6 +24,7 @@ public final class BedwarsClient extends JavaPlugin {
     public GameManager gameManager;
     public static JedisPool pool;
     public SocketClient Sclient;
+    public static FileConfiguration config;
 
     @Override
     public void onEnable() {
@@ -30,6 +32,8 @@ public final class BedwarsClient extends JavaPlugin {
 
         plugin = this;
         saveDefaultConfig();
+        //setting that special file configuration
+
         theServerName = getConfig().getString("server");
         logConsole(Utils.prefix + " &eLoading client bedwars plugin....");
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
