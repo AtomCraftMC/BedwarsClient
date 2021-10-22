@@ -1,7 +1,6 @@
 package me.deadlight.bedwarsclient.Listeners;
 
 import me.deadlight.bedwarsclient.BedwarsClient;
-import me.deadlight.bedwarsclient.TopPlayerDataObject;
 import me.deadlight.bedwarsclient.Utils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

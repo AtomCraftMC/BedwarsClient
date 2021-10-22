@@ -12,7 +12,6 @@ import java.util.*;
 
 public class Utils {
 
-    public static HashMap<Integer, HashMap<String, TopPlayerDataObject>> arenasInfo = new HashMap<>();
 
     public static HashMap<String, HashMap<String, String>> cosmeticMap = new HashMap<>();
 
