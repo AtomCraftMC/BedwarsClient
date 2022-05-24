@@ -1,5 +1,6 @@
 package me.deadlight.bedwarsclient;
 
+import me.deadlight.bedwarsclient.Messanger.ClientParty;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import redis.clients.jedis.Jedis;
@@ -12,6 +13,8 @@ import java.util.*;
 
 public class Utils {
 
+
+    public static HashMap<String, ClientParty> incomingParties = new HashMap<>();
 
     public static HashMap<String, HashMap<String, String>> cosmeticMap = new HashMap<>();
 
